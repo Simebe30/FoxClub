@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Main page</title>
+  <link rel="stylesheet" th:href="@{style.css}">
+</head>
+<body>
+<!--  <li th:insert="~{index.html :: linksFragment}"></li>-->
+<ul>
+
+<!--      PREDELAT NA FRAGMENTY (Nejak)-->
+
+  <li><a th:href="@{/main(name=${fox.getName()})}">Information</a></li>
+  <li><a th:href="@{/nutritionStore(name=${fox.getName()})}">Nutrition Store</a></li>
+  <li><a th:href="@{/trickCenter}">Trick Center</a></li>
+</ul>
+<img th:src="@{cutefox.jpg}" alt="" width="200" height="250">
+  <p th:text="'This is Mr. ' +${fox.getName()} + '. Currently living on ' + ${fox.getFood()} + ' and '
++ ${fox.getDrink()} + '. (S)He knows ' + ${fox.getTricks().size()} + ' tricks.'"></p>
+  <h1>Known tricks</h1>
+  <p th:if="${fox.getTricks().isEmpty()}">You know no tricks, yet. Go and learn some.</p>
+</body>
+</html>
