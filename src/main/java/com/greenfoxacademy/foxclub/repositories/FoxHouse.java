@@ -28,4 +28,12 @@ public class FoxHouse {
                 .orElse(new Fox(name));
     }
 
+    public void assignFood(String name, String food){
+        getSpecificFox(name).setFood(food);
+    }
+
+    public void assignDrink(String name, String drink){
+        getSpecificFox(name).setDrink(drink);
+    }
+
 }

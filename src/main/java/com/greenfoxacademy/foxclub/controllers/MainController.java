@@ -61,7 +61,10 @@ public class MainController {
     @PostMapping("/nutritionStore")
     public String nutritionSubmit(@RequestParam("food") String food,
                                   @RequestParam("drink") String drink,
-                                  RedirectAttributes attrs){
+                                  @RequestParam("name") String name){
+        foxHouse.assignFood(name,food);
+        foxHouse.assignFood(name,drink);
+
         return "redirect:/main";
     }
 
